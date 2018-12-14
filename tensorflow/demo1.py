@@ -7,6 +7,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 x_data = np.float32(np.random.rand(2, 100)) # 随机输入
 y_data = np.dot([0.100, 0.200], x_data) + 0.300
 
+
 # 构造一个线性模型
 # 
 b = tf.Variable(tf.zeros([1]))
@@ -23,6 +24,8 @@ init = tf.global_variables_initializer()
 
 # 启动图 (graph)
 sess = tf.Session()
+writer = tf.summary.FileWriter("logs/", sess.graph)
+
 sess.run(init)
 
 # 拟合平面

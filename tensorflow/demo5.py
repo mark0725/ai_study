@@ -1,13 +1,14 @@
 import tensorflow as tf
 import numpy as np
 import pandas as pd
+import matplotlib as plt
 import os
 
 # ignore warning:Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 #1 加载数据集，把输入和结果分开
-train = pd.read_csv("train.csv")
+train = pd.read_csv("MNIST_data/train.csv")
 images = train.iloc[:,1:].values
 labels_flat = train[['label']].values.ravel()
 
